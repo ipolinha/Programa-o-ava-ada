@@ -1,2 +1,2 @@
-# Programa-o-ava-ada
+# Programacao avacada
 lista de ponteiros
