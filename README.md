@@ -1,4 +1,4 @@
 # projeto escultor 3d
-Segunda Unidade n/ 
-Francisca paula de souza n/
+Segunda Unidade 
+Francisca paula de souza 
 Matricula: 20170115241
