@@ -8,17 +8,20 @@
 using namespace std;
 
 int main(){
-    Sculptor Desenho(200,200,200);
-    Desenho.setColor(1,0.5,0.7,0.1);
-    Desenho.putVoxel(1,0,0);
+    Sculptor Desenho(100,100,100);
+    Desenho.setColor(1,1,1,1);
+    Desenho.putVoxel(0,0,0);
     Desenho.cutVoxel(0,0,0);
-    Desenho.putBox(0,0,0,0,0,0);
-    Desenho.cutBox(0,0,0,0,0,0);
-    Desenho.setColor(1,0.5,0.8,1);
-   // Desenho.putSphere(0,0,0,0);
-   // Desenho.cutSphere(0,0,0,0);
-    Desenho.putEllipsoid(100,100,100,60,65,60);
-    Desenho.cutEllipsoid(90,90,90,50,55,50);
-    Desenho.writeOFF("desenhos2.off");
-    return 0;
+    Desenho.setColor(1,1,1,1);
+    Desenho.putBox(0,15,0,15,0,15);//bloco sofa
+    Desenho.cutBox(0,8,3,12,3,15);//corte
+    Desenho.cutBox(0,8,0,3,9,15);//braço
+    Desenho.cutBox(0,8,12,15,9,15);//braço corte
+    Desenho.setColor(1,1,0,1);
+    Desenho.putEllipsoid(10,21,8,4,6,5);
+    Desenho.setColor(1,1,1,1);
+    Desenho.putBox(8,12,17,25,0,8);//jarro
+    Desenho.cutBox(9,10,19,22,3,8);//jarro
+    Desenho.writeOFF("mesabau.off");
+       return 0;
 }
