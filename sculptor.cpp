@@ -23,7 +23,6 @@ Sculptor::Sculptor(int _nx, int _ny, int _nz){
     {
         v[0][i] = v[0][i-1] + nx;
     }
-    v[4][6][6].isOn = false;
 }
 
 /**
@@ -89,15 +88,17 @@ void Sculptor::cutBox(int x0, int x1, int y0, int y1, int z0, int z1){
 }
 
 void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius){
-    for ( int i = 0 ; i <(2*xcenter); i ++)
+    double esfera;
+    for ( int i = 0 ; i<=xcenter; i ++)
     {
-        for ( int j = 0 ; j < (2*ycenter); j ++)
+        for ( int j = 0 ; j<=ycenter; j ++)
         {
-            for ( int k = 0 ; k < (2*zcenter); k ++)
+            for ( int k = 0 ; k<zcenter; k ++)
             {
-                if (((i-xcenter) * (i-xcenter) + (j-ycenter) * (j-ycenter) + (k-zcenter) * (k-zcenter)) <= (radius*radius))
+                esfera = pow((k-xcenter),2) + pow(((j-ycenter)),2) + pow(((i-zcenter)),2);
+                if (esfera<=pow(radius,2))
                 {
-                   putVoxel(i,j,k);
+                    putVoxel(i,j,k);
                 }
             }
         }
@@ -105,15 +106,17 @@ void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius){
 }
 
 void Sculptor::cutSphere(int xcenter, int ycenter, int zcenter, int radius){
-    for ( int i = 0 ; i <(2*xcenter); i ++)
+    double esfera;
+    for ( int i = 0 ; i <= xcenter; i ++)
     {
-        for ( int j = 0 ; j < (2*ycenter); j ++)
+        for ( int j = 0 ; j<= ycenter; j ++)
         {
-            for ( int k = 0 ; k < (2*zcenter); k ++)
+            for ( int k = 0 ; k<=zcenter; k ++)
             {
-                if (((i-xcenter) * (i-xcenter) + (j-ycenter) * (j-ycenter) + (k-zcenter) * (k-zcenter)) <= (radius*radius))
+                esfera = pow((k-xcenter),2) + pow(((j-ycenter)),2) + pow(((i-zcenter)),2);
+                if (esfera<=pow(radius,2))
                 {
-                   cutVoxel(i,j,k);
+                    cutVoxel(i,j,k);
                 }
             }
         }
